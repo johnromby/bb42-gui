@@ -8,7 +8,7 @@ ws.onopen = function() {
 ws.onclose = function() {
 };
 
-ws.onmessage = function(event){
+ws.onmessage = function(event) {
     if (event.data.slice(0, 1) == 1) {
         document.getElementById('Kp-value-read').textContent = (event.data).slice(1);
     }
@@ -20,9 +20,9 @@ ws.onmessage = function(event){
     }
 }
 
-function send(){
-    ws.send(document.getElementById('Kp').value);
-    alert(document.getElementById('Kp').value); // DEBUG
+function send() {
+    //alert('1' + document.getElementById('Kp').value);
+    ws.send('1' + (document.getElementById('Kp').value));
     document.getElementById('Kp').value = '';
 }
 
