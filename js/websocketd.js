@@ -21,9 +21,18 @@ ws.onmessage = function(event) {
 }
 
 function send() {
-    //alert('1' + document.getElementById('Kp').value);
-    ws.send('1' + (document.getElementById('Kp').value));
-    document.getElementById('Kp').value = '';
+    if (document.getElementById('Kp').value != '') {
+        ws.send('1' + (document.getElementById('Kp').value));
+        document.getElementById('Kp').value = '';
+    }
+    if (document.getElementById('Ki').value != '') {
+        ws.send('2' + (document.getElementById('Ki').value));
+        document.getElementById('Ki').value = '';
+    }
+    if (document.getElementById('Kd').value != '') {
+        ws.send('3' + (document.getElementById('Kd').value));
+        document.getElementById('Kd').value = '';
+    }
 }
 
 function exit() {
