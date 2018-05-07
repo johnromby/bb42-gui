@@ -1,10 +1,15 @@
 #include <iostream>
+#include <unistd.h>   // Used for the sleep() and usleep() functions
 #include <mutex>
 #include <string>
 #include <thread>
 
 std::mutex msg_mutex;
 std::string msg;
+
+std::string kp_value = "110,000";
+std::string ki_value = "20,033";
+std::string kd_value = "32,000";
 
 void read()
 {
@@ -29,6 +34,13 @@ void write()
 
 int main()
 {
+  std::cout << kp_value << std::endl;
+  usleep(500 * 1000);
+  std::cout << ki_value << std::endl;
+  usleep(500 * 1000);
+  std::cout << kd_value << std::endl;
+  usleep(500 * 1000);
+
   std::thread reader(read);
   std::thread writer(write);
 
